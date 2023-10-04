@@ -4,16 +4,16 @@
             {{ __('List of Industry Partners') }}
         </h2>
         @if(auth()->user()->user_type === 'Teacher')
-            <h3>
-                {{ __('Status') }}
-            </h3>
+        <h3>
+            {{ __('Status') }}
+        </h3>
         @endif
     </x-slot>
 
         <div class="list-container">
         @foreach ($partners as $partner)
                 <div class="partner-card">
-                    <a href="#">
+                    <a href="{{route('partner.show', ['id' => $partner->user_id])}}">
                         <p>{{$partner->user->name}}</p>
                     </a>
                     @if(auth()->user()->user_type === 'Teacher')
@@ -38,6 +38,5 @@
         <div class="pagination-container">
             {{$partners->links()}}
         </div>
-        </div>
-                
+        </div>    
 </x-app-layout>

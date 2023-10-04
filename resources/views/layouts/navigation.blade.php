@@ -2,16 +2,20 @@
     <div class="nav-wrapper">
         <!-- Navbar Logo -->
         <div class="logo">
-            <a href="#home">WIL</a>
+            <a href="{{route('home')}}">WIL</a>
         </div>
         <!-- Navbar Links -->
         <div class="dropdown">
-            <div class="dropbtn"><a>MENU</a> 
+            <div class="dropbtn">
+            <a>MENU</a> 
             <i class="fa fa-caret-down"></i>
             </div>
             <div class="dropdown-content">
             <x-dropdown-link :href="route('profile.edit')">
                 {{ __('Profile') }}
+            </x-dropdown-link>
+            <x-dropdown-link :href="route('project.index')">
+                {{ __('Projects') }}
             </x-dropdown-link>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

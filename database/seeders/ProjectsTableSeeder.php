@@ -17,19 +17,110 @@ class ProjectsTableSeeder extends Seeder
             'title' => 'Project 1',
             'students_needed' => 3,
             'description' => 'This is the description for Project 1.',
+            'year' => 2022,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 2',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2022,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 3',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2022,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 4',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2021,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 5',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2021,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 6',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2021,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+                 DB::table('projects')->insert([
+            'title' => 'Project 7',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
             'year' => 2023,
-            'trimestre' => 2,
+            'trimestre' => rand(1,3),
             'partner_id' => 2, 
             'created_at' => now(),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
 
         DB::table('projects')->insert([
-            'title' => 'Project 2',
+            'title' => 'Project 8',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2023,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 9',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2023,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('projects')->insert([
+            'title' => 'Project 10',
+            'students_needed' => 3,
+            'description' => 'This is the description for Project 1.',
+            'year' => 2023,
+            'trimestre' => rand(1,3),
+            'partner_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+
+        DB::table('projects')->insert([
+            'title' => 'Project 11',
             'students_needed' => 2,
             'description' => 'This is the description for Project 2.',
-            'year' => 2023,
-            'trimestre' => 2,
+            'year' => 2021,
+            'trimestre' => rand(1,3),
             'partner_id' => 3, 
             'created_at' => now(),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),

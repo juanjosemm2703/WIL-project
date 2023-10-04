@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partner extends Model
 {
+    public $incrementing = false;
     use HasFactory;
-        protected $fillable = [
+    protected $fillable = [
         'approved',
         'updated_at'
     ];

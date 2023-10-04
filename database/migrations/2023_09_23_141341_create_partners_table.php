@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->integer('user_id')->unsigned()->primary();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->boolean('approved');
+            $table->boolean('approved')->default(FALSE);
             $table->timestamps();
         });
     }

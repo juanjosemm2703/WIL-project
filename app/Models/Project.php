@@ -14,4 +14,7 @@ class Project extends Model
     function applications(){
         return $this->belongsToMany(Student::class, 'applications', 'project_id','student_id','id','user_id')->withPivot('justification');
     }
+    function files(){
+        return $this->hasMany(File::class);
+    }
 }

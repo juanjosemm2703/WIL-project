@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->primary();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->float('GPA')->nullable();
+        Schema::create('files', function (Blueprint $table) {
+            $table->id();
+            $table->string('file_path');
+            $table->enum('type', ['image', 'pdf']);
+            $table->integer('project_id')->unsigned();
+            $table->foreign('project_id')->references('id')->on('projects');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('files');
     }
 };

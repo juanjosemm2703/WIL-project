@@ -1,4 +1,6 @@
-
+:root {
+  --width:90%;
+}
 * {
     box-sizing: border-box;
     padding: 0;
@@ -13,11 +15,13 @@ html{
     overflow:auto;
     font-size: 62.5%;
 }
+
 body{
     height: 100%;    
     overflow:auto;
     background: linear-gradient(159.25deg,#161616 -9.83%,#0d0d0d 112.33%);
 }
+
 h1, h2, h3, h4, h5 {
     color: #fff;
     text-align: center;
@@ -35,6 +39,7 @@ h2{
 h3{
     font-size:18px;
 }
+
 button, label, p, span {
     color: #afafaf;
     font-family: 'IBM Plex Sans';
@@ -49,6 +54,7 @@ a {
     font-family: 'IBM Plex Sans';
     font-size: 16px;
     text-decoration: none;
+    cursor: pointer;
 }
 .header{
     background: rgb(26, 26, 26);
@@ -58,21 +64,18 @@ a {
     height: 60px;
 }
 .hed-wrapper{
-    width: 70%;
+    width: var(--width);
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;  
+    align-items: center;
+    padding-right: 35px ; 
+    justify-content: space-between; 
 }
 
-.hed-wrapper h2{
-    float:left;
-}
-.hed-wrapper h3{
-    float:right;
-    padding-right: 47px;
-}
+
 .checkbox input[type=checkbox] {
     cursor: pointer;
     width: 14px;
@@ -104,6 +107,7 @@ a {
 }
 
 .row{
+    align-items: center;
     flex-direction: row;
 }
 .checkbox{
@@ -111,10 +115,10 @@ a {
     align-items: center;
     gap:10px;
 }
-input:focus, select:focus {
+input:focus, select:focus, textarea {
     outline-width: 0;
 }
-input, select{
+input, select, textarea{
     font-size: 14px;
     color: #818080fe;
     border: 1px solid hsla(0,0%,100%,.05);
@@ -124,6 +128,9 @@ input, select{
     width: 100%;
     height:100%;
     padding:10px;
+}
+textarea{ 
+    resize: none;
 }
 .error {
     font-size: 1.7rem;
@@ -145,6 +152,10 @@ input, select{
 .secondary-button{
     background: #a1a3e7;
 }
+.danger-button{
+    background: rgb(236, 71, 71);
+}
+
 
 #navbar {
     background: rgb(26, 26, 26);
@@ -161,7 +172,7 @@ input, select{
 .nav-wrapper {
   margin: auto;
   text-align: center;
-  width: 70%;
+  width: var(--width);
 } 
 
 .logo {
@@ -234,7 +245,7 @@ input, select{
 .list-container{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: var(--width);
     margin:auto;
 }
 
@@ -299,9 +310,180 @@ input, select{
 .pagination li.active {
   border-radius: 5px;
 }
+
 .pagination li {
   transition: background-color .3s;
 }
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    width: var(--width);
+    margin: 20px auto;
+    background: rgb(26, 26, 26);
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    max-height: calc(100vh - 102px); 
+    border-radius: 10px;
+}
+
+.profile-attributes{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    width: 100%; 
+}
+
+.attribute{
+    margin: 0;
+    min-height: 60px;
+    align-items: center; 
+    justify-content: left;
+    flex-direction: row;
+}
+
+.attribute > *{
+    margin: auto 0;
+}
+
+.project { 
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 0 20px;
+    overflow: auto;
+    gap: 15px;      
+}
+
+.project-item{
+    display: flex;
+    min-height: 60px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.project-title{
+    border-top: 2px solid rgba(255, 255, 255, 0.05);
+    overflow: visible;
+}
+
+.project-name{
+    width: 100%;
+    justify-content: center;
+}
+.project-name:hover{
+    background-color:  rgba(255, 255, 255, 0.05); ;
+}
+.button-container{
+    display: flex;
+    min-height: 60px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 20px;
+    gap: 15px;
+}
+.description{
+    align-self: flex-start;
+}
+.img-container{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 15px;
+    margin: 15px auto ;
+    width: 100%;
+}
+
+.grid-img{
+    width: 100%;
+    grid-column: span 2;
+}
+
+.grid-pdf{
+    grid-column: span 2;
+}
+.grid-title{
+    height:60px;
+}
+.grid-body{
+    min-height: 100px;
+}
+.error-msg{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height:60px;
+}
+.dropdownOffers{
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.dropdownList{
+    display: none;
+    width: 100%;
+    z-index: 1;
+    border: 1px rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-style: none solid solid solid;
+}
+.show{
+    position: relative;
+    top: -15px;
+    display:block;
+}
+
+.profile-container_header{
+    max-height: calc(100vh - 162px); 
+}
+/* 
+.profile-container{
+    width: 70%;
+    margin:auto;
+}
+
+.grid-profile{
+    width: 100%;
+    margin-top:20px;
+    margin-bottom:20px;
+    display:grid;
+    place-items: stretch;
+    grid-auto-rows: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 10px;
+    max-height: calc(100vh - 102px);
+    overflow-y: auto;
+}
+.grid-item{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(26, 26, 26);
+}
+.grid-3col{
+    grid-template-columns: repeat( 3, 1fr);
+}
+.grid-4col{
+    grid-column: 1 / 4
+}
+
+.project-item{
+    border-top:1px solid rgba(255, 255, 255, 0.05);  ;
+}
+
+.project-item:hover{
+    background-color:  rgba(255, 255, 255, 0.05); ;
+}
+
+.project-item_header{
+    border-top: 3px solid rgba(255, 255, 255, 0.05); 
+} */
+
 /* .page-link{
     color:  #3e43fb;
     border-color: rgba(255, 255, 255, 0.05);
@@ -318,8 +500,33 @@ input, select{
     background-color: #3e43fb;
     border-color: #3e43fb;
 } */
-@media (min-width: 730px){
+@media (min-width: 700px){
+    :root {
+        --width:70%;
+    }
     .user{
         display: inline;
+    }
+    .hed-wrapper{
+        padding-right: 47px;
+    }
+    .profile-attributes{
+        gap: 0;
+        flex-direction: row;
+        padding-left: 0;
+        
+    }
+    .attribute{
+        gap: 0;
+        min-height: 120px;
+        align-items: center; 
+        justify-content: center;
+        flex-direction: column;
+    }
+    .project{
+        align-items: center;
+    }
+    .grid-img{
+        grid-column: span 1;
     }
 }

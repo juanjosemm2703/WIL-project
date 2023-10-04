@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+    public $incrementing = false;
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
     function roles(){
         return $this->belongsToMany(Role::class, 'role_student','student_id', 'role_id','user_id');
     }

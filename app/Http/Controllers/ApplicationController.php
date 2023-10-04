@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Partner;
+use App\Models\Application;
+use App\Models\Student;
 
-class PartnerController extends Controller
+class ApplicationController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware(['auth', 'verified']);
-    // } 
-
     /**
      * Display a listing of the resource.
      */
-
     public function index()
     {
-        $partners = Partner::paginate(5);
-        return view('home')->with('partners', $partners);
+        //
     }
 
     /**
@@ -26,7 +21,9 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        //
+        $student = Student::where('user_id', auth()->user()->id)->get();
+        dd($student);
+        // return view('project.create');
     }
 
     /**
@@ -37,14 +34,12 @@ class PartnerController extends Controller
         //
     }
 
-    /**ß
+    /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $partner = Partner::where('user_id', $id)->first();
-        return view('profile.partner')->with('partner', $partner);
-        
+        //
     }
 
     /**
@@ -52,17 +47,15 @@ class PartnerController extends Controller
      */
     public function edit(string $id)
     {
-        
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {   
-        $is_approved = 1 - $request->is_approved;
-        $partner = Partner::where('user_id', $id)->update(['approved'=>$is_approved]);
-        return redirect(route('partner.show', ['id' => $id]));
+    {
+        //
     }
 
     /**

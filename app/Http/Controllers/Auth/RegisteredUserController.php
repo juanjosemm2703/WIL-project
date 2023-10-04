@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Partner;
+use App\Models\Student;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -43,6 +45,18 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'user_type' => $request->type,
         ]);
+
+
+  
+        if($request->type == 'Student'){
+            $student = new Student();
+            $student->user_id = $user->id;
+            $student->save();
+        }else{
+            $partner = new Partner();
+            $partner->user_id = $user->id;
+            $partner->save();
+        }
 
         event(new Registered($user));
 
