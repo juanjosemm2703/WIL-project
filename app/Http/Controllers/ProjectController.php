@@ -12,6 +12,15 @@ use App\Models\File;
 class ProjectController extends Controller
 {
     /**
+     * ProjectController Constructor, setting up required middlewares.
+    */
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('checkUserType:Industry Partner',['only'=>['create','store', 'edit', 'update', 'destroy']]);
+        $this->middleware('validatePartner',['only'=>['edit','update','destroy']]);
+    }
+    
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -35,10 +44,10 @@ class ProjectController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'min:5',new UniqueProjectNameRule($request->trimestre, $request->year)],
-            'students' => ['required', 'in:3,4,5,6'],
+            'students' => ['required','integer', 'in:3,4,5,6'],
             'description' => ['required', new WordCountRule(3)],
-            'year' => ['required'],
-            'trimestre' => ['required', 'in:1,2,3'],
+            'year' => ['required', 'integer'],
+            'trimestre' => ['required','integer', 'in:1,2,3'],
             'files.*' => ['mimes:jpeg,png,pdf'],
         ]);
 
@@ -98,7 +107,7 @@ class ProjectController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'title' => ['required', 'string', 'min:5',new UniqueProjectNameRule($request->trimestre, $request->year)],
+            'title' => ['required', 'string', 'min:5',new UniqueProjectNameRule($request->trimestre, $request->year, $id)],
             'students' => ['required', 'in:3,4,5,6'],
             'description' => ['required', new WordCountRule(3)],
             'year' => ['required'],

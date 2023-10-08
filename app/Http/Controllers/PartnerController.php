@@ -7,9 +7,14 @@ use App\Models\Partner;
 
 class PartnerController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware(['auth', 'verified']);
-    // } 
+    /**
+     * PartnerController Constructor, setting up required middlewares.
+    */
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('verified', ['only'=>['index']]);
+        $this->middleware('checkUserType:Teacher', ['only'=>['update']]);
+    } 
 
     /**
      * Display a listing of the resource.
@@ -22,36 +27,12 @@ class PartnerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**ß
      * Display the specified resource.
      */
     public function show(string $id)
     {
         $partner = Partner::where('user_id', $id)->first();
         return view('profile.partner')->with('partner', $partner);
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
         
     }
 
@@ -65,11 +46,4 @@ class PartnerController extends Controller
         return redirect(route('partner.show', ['id' => $id]));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

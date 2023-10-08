@@ -16,7 +16,7 @@ class FilesTableSeeder extends Seeder
         DB::table('files')->insert([
             'project_id' => 1,
             'type' => 'image',
-            'file_path'=>'files/default.jpeg',
+            'file_path'=>'files/default.jpg',
             'created_at' => now(),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);

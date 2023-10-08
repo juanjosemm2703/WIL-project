@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed'],
             'type' => ['required', 'in:Student,Industry Partner'],
@@ -46,8 +46,6 @@ class RegisteredUserController extends Controller
             'user_type' => $request->type,
         ]);
 
-
-  
         if($request->type == 'Student'){
             $student = new Student();
             $student->user_id = $user->id;

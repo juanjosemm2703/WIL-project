@@ -29,6 +29,7 @@
             </div>
             @endif
         </div>
+        @if(count($partner->projects) > 0 )
         <div class="project project-item project-title">
             <div>
             <h2 > List of Projects</h2>
@@ -41,5 +42,6 @@
                 </a>
             @endforeach
         </div>
+        @endif
     </div>
 </x-app-layout>

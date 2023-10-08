@@ -9,8 +9,13 @@ class Student extends Model
 {
     use HasFactory;
     public $incrementing = false;
-    public function user()
-    {
+    protected $primaryKey = 'user_id';
+    
+    protected $fillable = [
+        'GPA',
+        'updated_at'
+    ];
+    public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
     function roles(){
@@ -19,4 +24,5 @@ class Student extends Model
     function applications(){
         return $this->belongsToMany(Project::class, 'applications','student_id', 'project_id','user_id')->withPivot('justification');
     }
+    
 }

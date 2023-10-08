@@ -11,9 +11,19 @@
             <i class="fa fa-caret-down"></i>
             </div>
             <div class="dropdown-content">
-            <x-dropdown-link :href="route('profile.edit')">
+            @if(Auth::user()->user_type == 'Student')
+            <x-dropdown-link :href="route('student.show', ['id' => Auth::user()->id])">
                 {{ __('Profile') }}
             </x-dropdown-link>
+            @elseif(Auth::user()->user_type == 'Industry Partner')
+            <x-dropdown-link :href="route('partner.show', ['id' => Auth::user()->id])">
+                {{ __('Profile') }}
+            </x-dropdown-link>
+            @elseif(Auth::user()->user_type == 'Teacher')
+            <x-dropdown-link :href="route('student.index')">
+                {{ __('Students') }}
+            </x-dropdown-link>
+            @endif
             <x-dropdown-link :href="route('project.index')">
                 {{ __('Projects') }}
             </x-dropdown-link>

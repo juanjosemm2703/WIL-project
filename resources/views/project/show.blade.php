@@ -36,7 +36,7 @@
         @endif
          @if(auth()->user()->user_type == 'Student')
         <div class="button-container">
-                <a  href="{{route('application.create')}}">
+                <a  href="{{route('application.create',['project_id' => $project->id])}}">
                 <x-primary-button >
                     {{ __('Apply') }}
                 </x-primary-button>
@@ -46,6 +46,12 @@
         @if($errors->get('application'))
         <div class="error-msg">
             <x-input-error :messages="$errors->get('application')"/>
+        </div>
+        @endif
+            
+        @if($errors->get('condition'))
+        <div class="error-msg">
+            <x-input-error :messages="$errors->get('condition')" />
         </div>
         @endif
         

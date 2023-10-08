@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
+        
 
         DB::table('users')->insert([
             'name' => 'Alice Smith',
